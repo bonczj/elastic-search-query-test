@@ -138,8 +138,11 @@ public abstract class BaseElasticSearch
     {
         XContentBuilder builder = XContentFactory.jsonBuilder().prettyPrint().startObject();
         Random random = new Random();
+        List<String> values = new ArrayList<String>();
+        
+        values.add(id.toString());
 
-        builder.field(FIELD_NAME, id.toString()).field(FIELD_VALUE, random.nextInt());
+        builder.field(FIELD_NAME, values).field(FIELD_VALUE, random.nextInt());
 
         return builder.endObject();
     }
